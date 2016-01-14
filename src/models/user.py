@@ -1,8 +1,9 @@
 
 class User:
 
-    def __init__(self):
-        pass
+    def __init__(self, email, password):
+        self.email = email
+        self.password = password
 
     def get_by_email(self):
         pass
@@ -11,6 +12,7 @@ class User:
         pass
 
     def login_valid(self):
+        # check loging and email information
         pass
 
     def register(self):
