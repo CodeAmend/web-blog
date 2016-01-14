@@ -3,10 +3,10 @@ from src.common.database import Database
 
 class User:
 
-    def __init__(self, email, password, _id):
+    def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
-        self._id = _id
+        self._id = uuid.uuid4().hex if _id is None else _id
 
     @classmethod
     def get_by_email(cls, email):
