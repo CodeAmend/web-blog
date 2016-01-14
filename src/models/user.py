@@ -20,9 +20,16 @@ class User:
         if data is not None:
             return cls(**data)
 
-    def login_valid(self):
-        # check loging and email information
-        pass
+    @staticmethod
+    def login_valid(email, password):
+        user = User.get_by_email(email)
+        # check if user exists
+        if user is not None:
+            return user.password == password
+        else:
+            # User does not exist
+            return False
+
 
     def register(self):
         pass
