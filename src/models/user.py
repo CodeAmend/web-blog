@@ -1,3 +1,5 @@
+from src.common.database import Database
+
 
 class User:
 
@@ -5,8 +7,11 @@ class User:
         self.email = email
         self.password = password
 
-    def get_by_email(self):
-        pass
+    @classmethod
+    def get_by_email(cls, email):
+        data = Database.find_one('users', {'email': email})
+        if data is not None:
+            return cls(**data)
 
     def get_by_id(self):
         pass
